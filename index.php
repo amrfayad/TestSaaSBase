@@ -9,7 +9,7 @@
                 var email = $('#email').val();
                 var pass = $('#pass').val();
                 var key = "1234";
-                var action = "login"
+                var action = "login";
                 var data=action+''+email+''+pass+''+key;
                 var hashed = md5(data);
                 var userData = {
@@ -68,7 +68,7 @@
                     <td><input type="button" name="submit" value="SignUp" onclick="signupMessage()"></td>
                 </tr>
             </table>
-        </form> 
+        </form>
 
 
     </body>
