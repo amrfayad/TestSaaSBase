@@ -7,8 +7,8 @@
         <script>
             function loginMessage() {
                 var email = $('#email').val();
-                var pass = $('#pass').val();
-                var key = "1234";
+                var pass = md5($('#pass').val());
+                var key = "e10adc3949ba59abbe56e057f20f883e";
                 var action = "login"
                 var data=action+''+email+''+pass+''+key;
                 var hashed = md5(data);
