@@ -32,22 +32,6 @@
                             }
                         });
             }
-            function signupMessage() {
-                $.ajax(
-                        {
-                            type: 'post',
-                            url: 'http://localhost/SaaSBase/index.php',
-                            data: {
-                                action: "signup",
-                                name: "amr",
-                                pass: "123456"
-                            },
-                            success: function (data)
-                            {
-                                alert(data);
-                            }
-                        });
-            }
         </script>
     <body>
         <form method="post">
@@ -65,7 +49,7 @@
                 </tr>
                 <tr>
                     <td></td>
-                    <td><input type="button" name="submit" value="SignUp" onclick="signupMessage()"></td>
+                    <td><a href="register.php">signup</a></td>
                 </tr>
             </table>
         </form>
