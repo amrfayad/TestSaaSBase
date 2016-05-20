@@ -11,11 +11,10 @@ function signupMessage(){
   var mail=$('#email').val();
   var pass=md5($('#passwd').val());
   var action="signup";
-  var key = "1234";
-  var data=name+''+mail+''+pass+''+key;
-  //alert(data); exit;
+  var key = "e10adc3949ba59abbe56e057f20f883e";
+  var data=action+''+name+''+mail+''+pass+''+key;
   var hashed = md5(data);
-  var Data = {
+  var userData = {
                     action: action,
                     name:name,
                     email: mail,
@@ -26,7 +25,7 @@ function signupMessage(){
                             type:'post',
                             url:'http://localhost/SaaSBase/index.php',
                             data:{
-                              data:Data,
+                              data:userData,
                               hash:hashed
               },
                 success:function(data)
