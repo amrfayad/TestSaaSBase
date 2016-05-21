@@ -1,7 +1,15 @@
-<html>
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
-    <title>Forgot My Password</title>
-    <link rel="stylesheet" href="./boot/bootstrap.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Forget My Password</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
     <script src="js/jquery.min.js"></script>
     <script src="js/md5.min.js"></script>
     <script>
@@ -36,29 +44,24 @@
         }
     </script>
 <body>
-<form method="POST">
-    <table class="table">
-        <tr>
-            <td>Enter Your Email</td>
-            <td><input type="text" class="form-control"  name="email" id ="email"></td>
-        </tr>
-        <tr>
-            <td>Enter New Password</td>
-            <td><input type="password" class="form-control"  name="password" id ="password"></td>
-        </tr>
-        <tr>
-            <td>Confirm Password</td>
-            <td><input type="password" class="form-control"  name="password_confirmation" id ="password_confirmation"></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                <input type="button" value="Change Password"  onclick="forgot_password()">
-            </td>
-        </tr>
-    </table>
-</form>
-
+<br><br>
+<h1 align="center">Forget My Password</h1>
+<div class="container">
+    <div class="form">
+        <div class="form-group">
+            <label for="email">Enter Your Email</label>
+            <input type="text" class="form-control"  name="email" id ="email">
+        </div>
+        <div class="form-group">
+            <label for="password">Enter New Password</label>
+            <input type="password" class="form-control"  name="password" id ="password">
+        </div>
+        <div class="form-group">
+            <label for="password">Confirm Password</label>
+            <input type="password" class="form-control"  name="password_confirmation" id ="password_confirmation">
+        </div>
+        <button type="button" class="btn btn-primary"  onclick="forgot_password()">Change Password</button>
+    </div>
+</div>
 </body>
-
 </html>
