@@ -9,7 +9,7 @@
         function invite() {
             var admin_email = $('#admin_email').val();
             var invited_emails = $('#invited_emails').val();
-            var key = "1234";
+            var key = "e10adc3949ba59abbe56e057f20f883e";
             var action = "invite_users";
             var data=action+''+admin_email+''+invited_emails+''+key;
             var hashed = md5(data);
