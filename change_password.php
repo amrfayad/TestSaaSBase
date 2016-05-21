@@ -20,7 +20,7 @@
             var password_confirmation=$('#password_confirmation').val();
             var key = "e10adc3949ba59abbe56e057f20f883e";
             var action = "change_password";
-            var data=action+''+email+''+password+''+password_confirmation+''+key;
+            var data=action+''+email+''+old_password+''+password+''+password_confirmation+''+key;
             var hashed = md5(data);
             var userData = {
                 action: action,

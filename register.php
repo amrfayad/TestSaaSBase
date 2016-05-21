@@ -14,58 +14,85 @@
 <script src="js/md5.min.js"></script>
 
 <script>
-    function signupMessage(){
-        var name=$('#name').val();
-        var mail=$('#email').val();
-        var pass=md5($('#passwd').val());
-        var action="signup";
-        var key = "e10adc3949ba59abbe56e057f20f883e";
-        var data=action+''+name+''+mail+''+pass+''+key;
-        //alert(data); exit;
-        var hashed = md5(data);
-        var Data = {
-            action: action,
-            name: name,
-            email: mail,
-            pass: pass
-        };
-        $.ajax(
-            {
-                type:'post',
-                url:'http://localhost/SaaSBase/index.php',
-                data:{
-                    data:Data,
-                    hash:hashed
-                },
-                success:function(data)
-                {
-                    alert(data);
 
-                }
-
-            });
+ function signupMessage() {
+             var name = $('#name').val();
+             var mail = $('#email').val();
+              var pass = md5($('#passwd').val());
+             var action = "signup";
+             var team_id = $('#team_id').val();
+             var Data;
+             var key = 'e10adc3949ba59abbe56e057f20f883e';
+             var hashed;
+             if (team_id === undefined)
+             {
+                 var data = action + '' + name + '' + mail + '' + pass + '' + key;
+                 hashed = md5(data);
+                 Data = {
+ 			action: action,
+                        name: name,
+                        email: mail,
+                        pass: pass
+                 };
+              }
+	else
+	{
+		var data = action + '' + name + '' + mail + '' + pass + '' + team_id +''+ key ;
+                hashed = md5(data);
+                Data = {
+                     action: action,
+                     name: name,
+                     email: mail,
+                     pass: pass,
+                     team_id: team_id
+                 };
+	}
+		$.ajax(
+                         {
+                             type:'post',
+                             url:'http://localhost/SaaSBase/index.php',
+                             data:{
+                        	       data:Data,
+                        	       hash:hashed
+               			},
+                 		success:function(data)
+                             	{
+                                	 alert(data);
+                                
+                             	}
+                              
+                         });
+		
     }
+
 </script>
 <body>
 <br><br>
 <h1 align="center">SignUp Form</h1>
 <div class="container">
-    <div class="form">
-
-        <div class="form-group">
-            <label for="Name">Your Name</label>
-            <input type="text" class="form-control" id="name" placeholder="Name">
-        </div>
-        <div class="form-group">
-            <label for="Email1">Email address</label>
-            <input type="email" class="form-control" id="email" placeholder="Email">
-        </div>
-        <div class="form-group">
-            <label for="Password">Password</label>
-            <input type="password" class="form-control" id="passwd" placeholder="Password">
-        </div>
-        <button type="submit" class="btn btn-primary" onclick="signupMessage()">SignUp</button>
-    </div>
+    <form method="post">
+         <table align="center" width="30%" border="0">
+             <tr>
+                 <td><input type="text" name="uname" id="name" placeholder="User Name" required /></td>
+             </tr>
+             <tr>
+                <td><input type="email" name="email"  id="email" placeholder="Your Email" required /></td>
+             </tr>
+             <tr>
+                 <td><input type="password" name="pass" id="passwd" placeholder="Your Password" required /></td>
+             </tr>
+             <?php if (isset($_GET['team_id'])) { ?>
+                 <tr>
+                    <td><input type="hidden" name="team_id" id="team_id" value="<?php echo $_GET['team_id'] ?>"/></td>
+                 </tr>
+                 <?php
+             }
+             ?>
+             <tr>
+                 <td><input type="button" name="submit" value="SignUp" onclick="signupMessage()"></td>
+             </tr>
+        </table>
+     </form>
 </div>
 </body>
 </html>

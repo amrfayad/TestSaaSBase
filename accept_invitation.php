@@ -18,13 +18,14 @@
         var email = $('#email').val();
         var key = "e10adc3949ba59abbe56e057f20f883e";
         var action = "accept_invitation";
-        var data = action + '' + email + '' + pass + '' + key;
+	var team_id = 1 ;
+        var data = action + '' + email + '' + pass + ''+team_id+''+ key;
         var hashed = md5(data);
         var userData = {
             action: action,
             email: email,
             pass: pass,
-            team_id: 1
+            team_id: team_id,
         };
         $.ajax(
             {
