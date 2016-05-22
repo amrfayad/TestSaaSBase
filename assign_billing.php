@@ -16,7 +16,7 @@
             function loginMessage() {
                 var team_id = 1 ;
                 var admin_pass = md5($('#pass').val());
-                var user_id =2;
+                var user_id =10;
                 var key = "e10adc3949ba59abbe56e057f20f883e";
                 var action = "assign_billing"
                 var data=action+''+team_id+''+admin_pass+''+user_id+''+key;
