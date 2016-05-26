@@ -16,8 +16,8 @@
 
 <script>
     function signupMessage(){
-        var action="get_profile";
-        var id=$('#user_id').val();
+        var action="get_team_members";
+        var id=$('#team_id').val();
         var key = "e10adc3949ba59abbe56e057f20f883e";
         var data=action+''+id+''+key;
         var hashed = md5(data);
@@ -25,7 +25,7 @@
 
         var Data = {
                 action: action,
-                user_id:id
+               team_id:id
                     };
             $.ajax(
                             {
@@ -46,15 +46,15 @@
 </script>
 <body>
 <br><br>
-<h1 align="center">User Info</h1>
+<h1 align="center">Team Member Info</h1>
 <div class="container">
     <div class="form">
         <div class="form-group">
-            Enter User ID:
-            <input  type="text" name="user_id" id="user_id"/>
+            Enter Team ID:
+            <input  type="text" name="team_id" id="team_id"/>
         </div>
         <div class="form-group">
-            <button type="button" name="submit" class="btn btn-primary" onclick="signupMessage()">ShowProfile</button>
+            <button type="button" name="submit" class="btn btn-primary" onclick="signupMessage()">ShowMembers</button>
         </div>
     </div>
 </div>
