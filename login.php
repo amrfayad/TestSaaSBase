@@ -10,37 +10,33 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
-<script src="js/jquery.min.js"></script>
-<script src="js/md5.min.js"></script>
-<script>
-    function loginMessage() {
-        var email = $('#email').val();
-        var pass = md5($('#pass').val());
-        var key = "e10adc3949ba59abbe56e057f20f883e";
-        var action = "login"
-        var data=action+''+email+''+pass+''+key;
-        var hashed = md5(data);
-        var userData = {
-            action: action,
-            email: email,
-            pass: pass,
-        };
-        $.ajax(
-            {
-                type: 'post',
-                url: 'http://localhost/SaaSBase/index.php',
-                data: {
-                    data: userData,
-                    hash: hashed,
-                },
-                success: function (data)
-                {
-                    alert(data);
-
-                }
-            });
-    }
-</script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/md5.min.js"></script>
+        <script>
+            function loginMessage() {
+                var email = $('#email').val();
+                var pass = $('#pass').val();
+                var action = "login"
+                var userData = {
+                    action:action,
+                    email: email,
+                    pass: pass,
+                };
+                $.ajax(
+                        {
+                            type: 'post',
+                            url: './controller/controller.php',
+                            data: {
+                                module: 'member',
+                                data: userData,
+                            },
+                            success: function (data)
+                            {
+                                alert(data);
+                            }
+                        });
+            }
+        </script>
 <body>
 <br><br>
 <h1 align="center">Login Form</h1>
@@ -54,7 +50,7 @@
         <div class="form-group">
             <label for="Password">Password</label>
             <input type="password" class="form-control" id="pass" placeholder="Password">
-        </div>
+		</div>
     </div>
     <button type="submit" class="btn btn-primary" onclick="loginMessage()">Login</button>
     <a href="register.php">signup</a>

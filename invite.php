@@ -15,14 +15,16 @@
 
     function invite() {
         var admin_email = $('#admin_email').val();
+        var admin_password=$('#admin_password').val();
         var invited_emails = $('#invited_emails').val();
         var key = "e10adc3949ba59abbe56e057f20f883e";
         var action = "invite_users";
-        var data=action+''+admin_email+''+invited_emails+''+key;
+        var data=action+''+admin_email+''+admin_password+''+invited_emails+''+key;
         var hashed = md5(data);
         var userData = {
             action: action,
             admin_email: admin_email,
+            admin_password:admin_password,
             invited_emails: invited_emails,
         };
         $.ajax(
@@ -48,6 +50,10 @@
         <div class="form-group">
             <label for="Email">Enter Your Admin Email</label>
             <input type="email" class="form-control" name="admin_email" id ="admin_email" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <label for="Email">Enter Your Admin Password</label>
+            <input type="email" class="form-control" name="admin_password" id ="admin_password" placeholder="Password">
         </div>
         <div class="form-group">
             <label for="Email">Invited Emails Sperated By Enter "New Line"</label>
