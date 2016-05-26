@@ -37,42 +37,23 @@
                         });
             }
         </script>
-    <body>
-    <br><br>
-    <h1 align="center">Login Form</h1>
-    <div class="container">
-        <div class="form">
+<body>
+<br><br>
+<h1 align="center">Login Form</h1>
+<div class="container">
+    <div class="form">
 
-            <div class="form-group">
-                <label for="Email1">Email address</label>
-                <input type="email" class="form-control" id="emailhh" placeholder="Email">
-            </div>
-            <div class="form-group">
-                <label for="Password">Password</label>
-                <input type="password" class="form-control" id="pahhss" placeholder="Password">
-            </div>
+        <div class="form-group">
+            <label for="Email1">Email address</label>
+            <input type="email" class="form-control" id="email" placeholder="Email">
         </div>
-            <button type="submit" class="btn btn-primary" onclick="loginMessage()">Login</button>
+        <div class="form-group">
+            <label for="Password">Password</label>
+            <input type="password" class="form-control" id="pass" placeholder="Password">
+		</div>
     </div>
-        <form method="post">
-            <table class="table">
-                <tr><td>User Email</td>
-                    <td><input type="text" name="usname" id ="email"></td>
-                </tr>
-                <tr>
-                    <td>Password</td>    
-                    <td><input type="password" name="pass" id ="pass"></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><input type="button" name="submit" value="LogIn" onclick="loginMessage()"></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><a href="register.php">signup</a></td>
-                </tr>
-            </table>
-        </form>
-    </body>
-
+    <button type="submit" class="btn btn-primary" onclick="loginMessage()">Login</button>
+    <a href="register.php">signup</a>
+</div>
+</body>
 </html>

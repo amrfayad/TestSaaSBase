@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Reset Password</title>
+    <title>Forget My Password</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -13,15 +13,21 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/md5.min.js"></script>
     <script>
-        function resetpass() {
+        function forgot_password() {
             var email = $('#email').val();
+            var token='22f9bd3b204796a4627a5cdeeae4e0e381d07f7898a862ba7342f090e46ed1e005a5cc4b0c4d7646';
+            var password=$('#password').val();
+            var password_confirmation=$('#password_confirmation').val();
             var key = "e10adc3949ba59abbe56e057f20f883e";
-            var action = "generate_reset_token";
-            var data=action+''+email+''+key;
+            var action = "change_password";
+            var data=action+''+email+''+password+''+password_confirmation+''+token+''+key;
             var hashed = md5(data);
             var userData = {
                 action: action,
                 email: email,
+                password:password,
+                password_confirmation:password_confirmation,
+		token:token,
             };
             $.ajax(
                 {
@@ -40,14 +46,22 @@
     </script>
 <body>
 <br><br>
-<h1 align="center">Reset Password</h1>
+<h1 align="center">Forget My Password</h1>
 <div class="container">
     <div class="form">
         <div class="form-group">
-            <label for="Email">Enter Your Email</label>
+            <label for="email">Enter Your Email</label>
             <input type="text" class="form-control"  name="email" id ="email">
         </div>
-        <button type="button" class="btn btn-primary"  onclick="resetpass()">Reset Password</button>
+        <div class="form-group">
+            <label for="password">Enter New Password</label>
+            <input type="password" class="form-control"  name="password" id ="password">
+        </div>
+        <div class="form-group">
+            <label for="password">Confirm Password</label>
+            <input type="password" class="form-control"  name="password_confirmation" id ="password_confirmation">
+        </div>
+        <button type="button" class="btn btn-primary"  onclick="forgot_password()">Change Password</button>
     </div>
 </div>
 </body>
