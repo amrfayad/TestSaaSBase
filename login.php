@@ -15,34 +15,29 @@
         <script>
             function loginMessage() {
                 var email = $('#email').val();
-                var pass = md5($('#pass').val());
-                var key = "e10adc3949ba59abbe56e057f20f883e";
+                var pass = $('#pass').val();
                 var action = "login"
-                var data=action+''+email+''+pass+''+key;
-                var hashed = md5(data);
                 var userData = {
-                    action: action,
+                    action:action,
                     email: email,
                     pass: pass,
                 };
                 $.ajax(
                         {
                             type: 'post',
-                            url: 'http://localhost/SaaSBase/index.php',
+                            url: './controller/controller.php',
                             data: {
+                                module: 'member',
                                 data: userData,
-                                hash: hashed,
                             },
                             success: function (data)
                             {
                                 alert(data);
-
                             }
                         });
             }
         </script>
     <body>
-<<<<<<< HEAD:login.php
     <br><br>
     <h1 align="center">Login Form</h1>
     <div class="container">
@@ -50,11 +45,11 @@
 
             <div class="form-group">
                 <label for="Email1">Email address</label>
-                <input type="email" class="form-control" id="email" placeholder="Email">
+                <input type="email" class="form-control" id="emailhh" placeholder="Email">
             </div>
             <div class="form-group">
                 <label for="Password">Password</label>
-                <input type="password" class="form-control" id="pass" placeholder="Password">
+                <input type="password" class="form-control" id="pahhss" placeholder="Password">
             </div>
         </div>
             <button type="submit" class="btn btn-primary" onclick="loginMessage()">Login</button>
